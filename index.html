@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>星星好评功能</title>
+    <style>
+        span{
+            font-size: 50px;
+            color: red;
+            cursor: pointer;
+
+        }
+    </style>
+
+</head>
+<body>
+<div>
+    <span>☆</span>
+    <span>☆</span>
+    <span>☆</span>
+    <span>☆</span>
+    <span>☆</span>
+</div>
+<p></p>
+</body>
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.js"></script>
+<script>
+//    ★
+
+//鼠标按下变红，
+$('span').on('mousedown', function () {
+    $(this).html('★')&& $(this).prevAll().html('★');
+//            清除所有绑定事件
+    $(this).unbind().prevAll().unbind().nextAll().unbind();
+
+})
+//鼠标经过变红
+        $('span').on('mouseenter', function () {
+            $(this).html('★')&& $(this).prevAll().html('★');
+
+        });
+//        鼠标离开变空
+        $('span').on('mouseleave', function () {
+            $(this).html('☆') && $(this).prevAll().html('☆');
+        });
+//        分数
+$('span').on('mouseenter', function () {
+   $('p'). html(parseInt( $(this).index("span"))+1+'分')
+});
+
+
+
+
+
+</script>
+</html>
